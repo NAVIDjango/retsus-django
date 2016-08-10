@@ -11,7 +11,7 @@ def pagina_de_login(request):
 
         # Validando se o formulário está correto
         if form.is_valid():
-            print "O Form está ok!"
+            print form.cleaned_data['estado']
         else:
             print "Não está ok :("
     return render(request, 'autenticacao/login.html')
