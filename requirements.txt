@@ -1,4 +1,7 @@
 Django==1.10
 django-debug-toolbar==1.5
+Pillow==3.3.0
 psycopg2==2.6.2
 sqlparse==0.2.0
+suds==0.4
+xmltodict==0.10.2
