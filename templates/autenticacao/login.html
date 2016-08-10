@@ -38,16 +38,27 @@
         <div id="login-page">
             <div class="container">
 
-                <form class="form-login" action="dashboard.html" method="post">
+                <form class="form-login" action="" method="post">
+                    {% csrf_token %}
                     <img src="{% static "assets/img/logo.png" %}" alt="" class="img-responsive center-block">
                     <div class="login-wrap">
-                        <input name="username" type="text" class="form-control" placeholder="CPF" autofocus>
+                        <input name="cpf" type="text" class="form-control" placeholder="CPF" autofocus>
                         <br>
-                        <input name="password" type="password" class="form-control" placeholder="Senha">
+                        <input name="senha" type="password" class="form-control" placeholder="Senha">
                         <span class="pull-right">
                             <a data-toggle="modal" href="index.html#myModal" class="esqueceu"> Esqueceu a senha?</a>
 
                         </span>
+                        <br>
+                        <p><b>Estado:</b></p>
+
+                        <select class="form-control">
+                          <option value="volvo">RN</option>
+                          <option value="saab">PB</option>
+                          <option value="mercedes">CE</option>
+                          <option value="audi">RJ</option>
+                        </select>
+
                         <button class="btn-block bt-login" type="submit">Entrar</button>
                         <span class="pull-right">
                             <a data-toggle="modal" href="index.html#myModal1" class="cadastrese"> Cadastre-se</a>
