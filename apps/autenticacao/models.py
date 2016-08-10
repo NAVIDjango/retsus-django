@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class UsuarioDadosExtra(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE(), related_name='dados_adicionais')
+    usuario = models.OneToOneField(User, models.CASCADE, related_name='dados_adicionais')
     cpf = models.CharField(max_length=14, unique=True)
     rg = models.CharField(max_length=11, unique=True)
     data_nascimento = models.DateField()
