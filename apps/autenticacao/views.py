@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def pagina_de_login(request):
+    return render(request, 'autenticacao/login.html')
