@@ -11,3 +11,7 @@ class UsuarioDadosExtra(models.Model):
     data_nascimento = models.DateField()
     telefone = models.CharField(max_length=20)
     foto_perfil = models.ImageField(upload_to='avatar/', blank=True, default='/media/avatar/avatar.jpg')
+    nome_completo = models.TextField()
+
+    def __unicode__(self):
+        return '%s' % (self.nome_completo)
