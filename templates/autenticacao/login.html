@@ -61,22 +61,10 @@
                             <a data-toggle="modal" href="index.html#myModal" class="esqueceu"> Esqueceu a senha?</a>
 
                         </span>
-{#                        <br>#}
-{#                        <p><b>Estado:</b></p>#}
-{##}
-{#                        <select class="form-control" name="estado">#}
-{#                          <option value="rn">RN</option>#}
-{#                          <option value="pb">PB</option>#}
-{#                          <option value="ce">CE</option>#}
-{#                          <option value="rj">RJ</option>#}
-{#                        </select>#}
                         {% if next %}
                             <input type="hidden" name="next" value="{{ next }}" />
                         {% endif %}
                         <button class="btn-block bt-login" type="submit">Entrar</button>
-                        <span class="pull-right">
-                            <a data-toggle="modal" href="index.html#myModal1" class="cadastrese"> Cadastre-se</a>
-                        </span>
                     </div>
 
 
@@ -84,6 +72,7 @@
 
                 <!-- Modal -->
                 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <div class="modal-dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -102,27 +91,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal1" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Cadastre-se</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>Insira seu email</p>
-                                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                                <button class="btn btn-theme" type="button">Enviar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- modal -->
 
             </div>
         </div>
