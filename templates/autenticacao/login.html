@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RETSUS | LOGIN</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/linearico.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="http://inovasus.navi.ifrn.edu.br/static/css/select2-bootstrap.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static "assets/css/style.css" %}">
+
+
+    <!-- Roboto Web Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,100,900' rel='stylesheet' type='text/css'>
+
+</head>
+    <body class="login">
+        <!--[if lt IE 8]>
+            <p class="browsehappy">Seu navegador está <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/">atualize seu navegador</a> para uma melhor navegação</p>
+        <![endif]-->
+
+
+
+        <div id="login-page">
+            <div class="container">
+                <form class="form-login" action="" method="post">
+                    {% csrf_token %}
+                    <img src="{% static "assets/img/logo.png" %}" alt="" class="img-responsive center-block">
+                    <div class="login-wrap">
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                                    <div class="alert alert-danger">
+                                      <strong>*</strong> {{ message }}
+                                    </div>
+                                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                    <div class="alert alert-warning">
+                                      <strong>*</strong> {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <input name="cpf" type="text" class="form-control" placeholder="CPF" autofocus>
+                        <br>
+                        <input name="senha" type="password" class="form-control" placeholder="Senha">
+                        <span class="pull-right">
+                            <a data-toggle="modal" href="index.html#myModal" class="esqueceu"> Esqueceu a senha?</a>
+
+                        </span>
+                        {% if next %}
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        {% endif %}
+                        <button class="btn-block bt-login" type="submit">Entrar</button>
+                    </div>
+
+
+                </form>
+
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Esqueceu a senha?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Insira seu email para recuperar sua senha.</p>
+                                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                <button class="btn btn-theme" type="button">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <script src="{% static "assets/js/vendor/jquery.min.js" %}"></script>
+        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+
+
+        <script src="{% static "assets/js/scripts.min.js" %}"></script>
+    </body>
+</html>

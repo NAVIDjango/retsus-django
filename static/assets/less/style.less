@@ -1,0 +1,135 @@
+@import "mixins.less";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 200px;
+  font-family: 'Lato', sans-serif;
+  background: #F2FAFF;
+}
+
+
+// auxiliar em margins e paddings
+
+.aux-margin-top {
+  margin-top: 60px;
+}
+
+.remove-radius {
+  border-radius: 0px !important;
+}
+
+// fim
+
+header {
+  background: url(../img/bg-pattern-header.jpg) repeat;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    h1 {
+      font-family: 'Ubuntu', sans-serif;
+    }
+    h1, p {
+      color: white;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 21px;
+      min-width:100px;
+      max-width:400px;
+      text-align:center;
+      margin:0 auto;
+    }
+}
+.sub-header {
+  min-height: 62px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  background: @color1;
+
+  h3 {
+    color: white;
+  }
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.form-signin {
+  max-width: 420px;
+  padding: 20px 21px 33px 21px;
+  margin: 0 auto;
+  background-color: @color-bg-form-login;
+
+  .input-group {
+    margin-bottom: 16px !important;
+  }
+
+  input{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: @color-form-login;
+    font-family: 'Open Sans', sans-serif;
+    border: 0px;
+  }
+
+  .input-group-addon {
+    background: @color-group-addon-login;
+    color: white;
+
+    i {
+      font-size: 26px;
+    }
+
+    .icon-lg {
+      font-size: 30px;
+    }
+
+  }
+
+  p {
+    color: @cinza1;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .btn-acessar {
+    background: @color-group-addon-login;
+    border-radius: 0px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+  }
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: 120px;
+  background: @color-bg-form-login;
+  img {
+    margin-top: 37px;
+  }
+}
+
+
+@import "media-queries.less";
