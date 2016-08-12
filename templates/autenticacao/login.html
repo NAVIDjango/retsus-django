@@ -70,7 +70,9 @@
 {#                          <option value="ce">CE</option>#}
 {#                          <option value="rj">RJ</option>#}
 {#                        </select>#}
-
+                        {% if next %}
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        {% endif %}
                         <button class="btn-block bt-login" type="submit">Entrar</button>
                         <span class="pull-right">
                             <a data-toggle="modal" href="index.html#myModal1" class="cadastrese"> Cadastre-se</a>
