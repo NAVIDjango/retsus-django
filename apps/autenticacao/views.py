@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout, login
 from .forms import FormAutenticacao
+from django.contrib import messages
 
 
 def pagina_de_login(request):
@@ -17,7 +18,10 @@ def pagina_de_login(request):
                 if user.is_active:
                     login(request, user)
                     return redirect('autenticacao:pagina_index')
-
+                else:
+                    messages.warning(request, 'O usuário na está ativo!')
+            else:
+                messages.error(request, 'Usuário ou senha incorretos.')
         else:
             print "Não está ok :("
 

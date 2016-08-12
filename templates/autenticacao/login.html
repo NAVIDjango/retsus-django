@@ -37,11 +37,23 @@
 
         <div id="login-page">
             <div class="container">
-
                 <form class="form-login" action="" method="post">
                     {% csrf_token %}
                     <img src="{% static "assets/img/logo.png" %}" alt="" class="img-responsive center-block">
                     <div class="login-wrap">
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                                    <div class="alert alert-danger">
+                                      <strong>*</strong> {{ message }}
+                                    </div>
+                                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                    <div class="alert alert-warning">
+                                      <strong>*</strong> {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                         <input name="cpf" type="text" class="form-control" placeholder="CPF" autofocus>
                         <br>
                         <input name="senha" type="password" class="form-control" placeholder="Senha">
@@ -49,15 +61,15 @@
                             <a data-toggle="modal" href="index.html#myModal" class="esqueceu"> Esqueceu a senha?</a>
 
                         </span>
-                        <br>
-                        <p><b>Estado:</b></p>
-
-                        <select class="form-control" name="estado">
-                          <option value="rn">RN</option>
-                          <option value="pb">PB</option>
-                          <option value="ce">CE</option>
-                          <option value="rj">RJ</option>
-                        </select>
+{#                        <br>#}
+{#                        <p><b>Estado:</b></p>#}
+{##}
+{#                        <select class="form-control" name="estado">#}
+{#                          <option value="rn">RN</option>#}
+{#                          <option value="pb">PB</option>#}
+{#                          <option value="ce">CE</option>#}
+{#                          <option value="rj">RJ</option>#}
+{#                        </select>#}
 
                         <button class="btn-block bt-login" type="submit">Entrar</button>
                         <span class="pull-right">
