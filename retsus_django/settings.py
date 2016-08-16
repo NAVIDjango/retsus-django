@@ -134,3 +134,8 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/login_obrigatorio/'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
