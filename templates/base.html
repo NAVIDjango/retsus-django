@@ -13,12 +13,12 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" type="text/css"  href="{%  static 'polls/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css"  href="{%  static 'polls/static/polls/css/linearico.css' %}">
-        <link rel="stylesheet" type="text/css"  href="{%  static 'polls/css/font-awesome.min.css' %}">
-        <link rel="stylesheet" type="text/css"  href="{%  static 'polls/css/animate.min.css' %}">
+        <link rel="stylesheet" type="text/css"  href="{%  static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css"  href="{%  static 'assets/css/linearico.css' %}">
+        <link rel="stylesheet" type="text/css"  href="{%  static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css"  href="{%  static 'assets/css/animate.min.css' %}">
 
-        <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -217,78 +217,17 @@
                     <!-- /sidebar menu -->
                 </div>
                 </div>
-                <header class="top_nav">
-                  <div class="nav_menu">
-                        <nav class="" role="navigation">
-                          <div class="nav toggle">
-                              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                          </div>
-                          <span class="title-p">
-                            <form role="search" class="navbar-left app-search pull-left hidden-xs">
-			                     <input type="text" placeholder="O que estas procurando" class="form-control form-control-custom typeahead tt-query" autocomplete="off" spellcheck="false">
-			                </form>
-                          </span>
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                  <span class="fa fa-angle-down aux-icon-down"></span>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="assets/img/avatar-ricardo.jpg" alt="">
-                                          <div class="user-profile-aux">
-                                            Ricardo Valentim<br/>
-                                            <small class="pull-left">Gestor</small>
-                                          </div>
-
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <li><a data-toggle="modal" data-target="#myModal">  Unidade: GERAL</a>
-                                        <li><a href="#">  Algum menu</a>
-                                        <li><a href="#">  Algum menu</a>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-
-                                <li role="presentation" class="dropdown">
-                                    <a href="javascript:;" class="dropdown-toggle info-number icon-noti" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-bell-o"></i>
-                                        <span class="badge bg-green">6</span>
-                                    </a>
-                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                                        <li>
-                                            <a>
-                                                <span class="message">
-                                                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                                              </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="message">
-                                                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                                              </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
+                {% block header %}
+                {% endblock %}
                 <!-- /top navigation -->
 
-                <div class="right_col" role="main">
-                  <div class="row">
+                <!-- <div class="right_col" role="main">
+                  <div class="row"> -->
                       {%  block content %} {% endblock %}
-                  </div>
+                  <!-- </div>
 
 
-                </div><!-- /right_col -->
+                </div><!-- /right_col --> -->
             </div>
 </div>
 
@@ -563,7 +502,8 @@
         </script>
         <!-- /Chart.js -->
 
-
+        {% block scripts %}
+        {% endblock %}
 
         <!--&lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID. &ndash;&gt;-->
         <!--<script>-->
