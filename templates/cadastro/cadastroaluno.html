@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+        {% block header %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form action="cadastro1.html">
+                            <h3>Cadastro</h3>
+                            <div class="row">
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="cpf">CPF</label>
+                                    <input type="cpf" class="form-control" id="cpf" aria-describedby="cpf" placeholder="Digite seu CPF">
+                                </div>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="rg">RG</label>
+                                    <input type="rg" class="form-control" id="rg" aria-describedby="rg" placeholder="Digite seu RG">
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 15px">
+                                    <label for="nome">Nome</label>
+                                    <input type="nome" class="form-control" id="nome" aria-describedby="nome" placeholder="Digite seu Nome">
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 15px">
+                                    <label for="nome">Nome da mãe</label>
+                                    <input type="nomedamae" class="form-control" id="nomedamae" aria-describedby="mae" placeholder="Digite o nome da Mãe">
+                                </div>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                        <label for="exampleSelect1">Sexo</label>
+                                        <select class="form-control" id="exampleSelect1">
+                                          <option>Masculino</option>
+                                          <option>Feminino</option>
+                                        </select>
+                                </div>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="nascimento">Data nascimento</label>
+                                    <input type="nascimento" class="form-control" id="nascimento" aria-describedby="nascimento" placeholder="Nascimento">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <a href="#" class="button bt-search" role="button"><span class="lnr lnr-magnifier"></span><span>Cadastrar</span></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+{% block scripts %}
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/typeahead.min.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
+
+
+    <script type="text/javascript" src="assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-material-datetimepicker.js"></script>
+{% endblock scripts %}
