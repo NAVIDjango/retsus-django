@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
-            {% block header %}
-                <header class="top_nav">
+        {% block header %}
+            <header class="top_nav">
                   <div class="nav_menu">
                         <nav class="" role="navigation">
                           <div class="nav toggle">
@@ -60,16 +59,15 @@
                                         </li>
                                     </ul>
                                 </li>
-
                             </ul>
                         </nav>
                     </div>
                 </header>
-                <!-- /top navigation -->
-            {% endblock %}
+        {% endblock %}
 
-            {% block content %}
-                <div class="right_col" role="main">
+        {% block content %}
+
+            <div class="right_col" role="main">
                   <div class="row">
                         <div class="col-md-12">
                             <ol class="breadcrumb">
@@ -78,7 +76,7 @@
                                 <li class="active">Exemplo</li>
                             </ol>
                             <h1>
-                                Início
+                                Cadastro Aluno
                             </h1>
                           <p class="sub-text-content">
                             Nulla feugiat vel purus placerat convallis. Nam cursus lectus quam, vel ultrices justo cursus ut. Cras tincidunt ipsum non lacus laoreet mollis eget eu nibh. In tempus venenatis eleifend. Etiam id consequat orci, at lacinia quam. Nullam nec ultricies justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
@@ -87,95 +85,63 @@
                           </p>
                         </div>
                   </div>
-                  <div class="row">
-                      <div class="col-md-12">
-                          <h2>Acesso rápido</h2>
-                          <hr>
-                      </div>
-                    <div class="col-md-3">
-                      <div class="x_panel tile_stats_count tile-icon icon-medical-kit brown">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <p>ACADÊMICO</p>
-                            </div>
-                            <div class="col-xs-4 text-right">
-                                <!--<div class="huge">12</div>-->
-                            </div>
-                        </div>
-                      </div><!-- /xpanel -->
-                    </div><!-- /col-md-4 -->
-                    <div class="col-md-3">
-                      <div class="x_panel tile_stats_count tile-icon icon-calendar blue">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <p>BÁSICO</p>
-                            </div>
-                            <div class="col-xs-4 text-right">
-                                <!--<div class="huge">06</div>-->
-                            </div>
-                        </div>
-                      </div><!-- /xpanel -->
-                    </div><!-- /col-md-4 -->
-                    <div class="col-md-3">
-                      <div class="x_panel tile_stats_count tile-icon icon-ocorrencias rosa">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <p>ESTÁGIO</p>
-                            </div>
-                            <div class="col-xs-4 text-right">
-                                <!--<div class="huge">05</div>-->
-                            </div>
-                        </div>
-                      </div><!-- /xpanel -->
-                    </div><!-- /col-md-4 -->
-                      <div class="col-md-3">
-                          <div class="x_panel tile_stats_count tile-icon icon-ocorrencias green">
-                              <div class="row">
-                                  <div class="col-xs-8">
-                                      <p>CONTÁBIL</p>
-                                  </div>
-                                  <div class="col-xs-4 text-right">
-                                      <!--<div class="huge">05</div>-->
-                                  </div>
-                              </div>
-                          </div><!-- /xpanel -->
-                      </div><!-- /col-md-4 -->
-                  </div><!-- /row -->
 
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="x_panel new-panel">
-                                <div class="x_title">
-                                    <h2>Avaliação instituicional</h2>
-
-                                    <div class="clearfix"></div>
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form action="cadastro1.html">
+                            <h3>Cadastro</h3>
+                            <div class="row">
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="cpf">CPF</label>
+                                    <input type="cpf" class="form-control" id="cpf" aria-describedby="cpf" placeholder="Digite seu CPF">
                                 </div>
-                                <div class="x_content"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                                    <canvas id="lineChart" style="width: 553px; height: 276px;" width="553" height="276"></canvas>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="rg">RG</label>
+                                    <input type="rg" class="form-control" id="rg" aria-describedby="rg" placeholder="Digite seu RG">
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 15px">
+                                    <label for="nome">Nome</label>
+                                    <input type="nome" class="form-control" id="nome" aria-describedby="nome" placeholder="Digite seu Nome">
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 15px">
+                                    <label for="nome">Nome da mãe</label>
+                                    <input type="nomedamae" class="form-control" id="nomedamae" aria-describedby="mae" placeholder="Digite o nome da Mãe">
+                                </div>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                        <label for="exampleSelect1">Sexo</label>
+                                        <select class="form-control" id="exampleSelect1">
+                                          <option>Masculino</option>
+                                          <option>Feminino</option>
+                                        </select>
+                                </div>
+
+                                <div class="col-md-6" style="margin-top: 15px">
+                                    <label for="nascimento">Data nascimento</label>
+                                    <input type="nascimento" class="form-control" id="nascimento" aria-describedby="nascimento" placeholder="Nascimento">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="x_panel new-panel">
-                                <div class="x_title">
-                                    <h2>Avaliação contábil</h2>
 
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                                    <canvas id="mybarChart" style="width: 553px; height: 276px;" width="553" height="276"></canvas>
+                            <div class="row" style="margin-top: 15px">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </div>
-                        </div>
+
+                        </form>
                     </div>
-
-                </div><!-- /right_col -->
-                {% endblock %}
+                </div>
             </div>
-</div>
 
-{% block scripts %}
+        {% endblock %}
+
+
+        {% block scripts %}
         <script src="{% static "assets/js/vendor/jquery.min.js" %}"></script>
         <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
         <script src="{% static "assets/js/typeahead.min.js" %}"></script>
@@ -390,4 +356,3 @@
             });
         </script>
 {% endblock %}
-
