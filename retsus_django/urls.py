@@ -23,4 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('apps.autenticacao.urls', namespace='autenticacao')),
     url(r'^academico/', include('apps.academico.urls', namespace='academico')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\
+                   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

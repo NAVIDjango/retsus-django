@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=w_)8&cuzm$05()mka!h(cngben-_cq68)%+nu#jkgo26o0@kd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['retsus.ufrn.br', ]
 
 
 # Application definition
@@ -130,10 +130,10 @@ MEDIA_ROOT = 'media'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "retsus_django/static"),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = 'static'
 
 LOGIN_URL = '/login_obrigatorio/'
 
