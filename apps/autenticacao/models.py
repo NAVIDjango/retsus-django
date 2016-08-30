@@ -10,7 +10,7 @@ class UsuarioDadosExtra(models.Model):
     rg = models.CharField(max_length=11, unique=True)
     data_nascimento = models.DateField()
     telefone = models.CharField(max_length=20)
-    foto_perfil = models.ImageField(upload_to='avatar/', blank=True, default='/media/avatar/avatar.jpg')
+    foto_perfil = models.ImageField(upload_to='avatar/', blank=True, default='/avatar/avatar.jpg')
     nome_completo = models.TextField()
 
     def __unicode__(self):
