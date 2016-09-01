@@ -1229,3 +1229,8 @@ form small {
       margin-top: -10px;
   }
 }
+
+.imagem_perfil{
+    height: 300px;
+    width: 300px;
+}

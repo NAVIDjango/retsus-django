@@ -14,11 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from .views import pagina_de_login, pagina_index, sair_do_sistema, pagina_de_login_obrigatorio
+from .views import pagina_de_login, pagina_index, sair_do_sistema, pagina_de_login_obrigatorio, pagina_perfil, \
+    alterar_email, alterar_senha
+#UsuarioUpdate
 
 urlpatterns = [
     url(r'^$', pagina_de_login, name='pagina_de_login'),
     url(r'^sair/$', sair_do_sistema, name='sair_do_sistema'),
     url(r'^dashboard/$', pagina_index, name='pagina_index'),
+    url(r'^perfil/$', pagina_perfil, name='pagina_perfil'),
     url(r'^login_obrigatorio/', pagina_de_login_obrigatorio, name='login_obrigatorio'),
+    url(r'^alterar_email/', alterar_email, name='alterar_email'),
+    url(r'^alterar_senha/', alterar_senha, name='alterar_senha'),
+    # url(r'^alterar_email/', UsuarioUpdate.as_view(), name='alterar_email'),
 ]

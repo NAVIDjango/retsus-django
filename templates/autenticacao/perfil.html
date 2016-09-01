@@ -1,0 +1,373 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+<header class="top_nav" xmlns="http://www.w3.org/1999/html">
+   <div class="nav_menu">
+      <nav class="" role="navigation">
+         <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+         </div>
+         <span class="title-p">
+            <form role="search" class="navbar-left app-search pull-left hidden-xs">
+               <input type="text" placeholder="O que estas procurando" class="form-control form-control-custom typeahead tt-query" autocomplete="off" spellcheck="false">
+            </form>
+         </span>
+         <ul class="nav navbar-nav navbar-right">
+            <li>
+               <span class="fa fa-angle-down aux-icon-down"></span>
+            </li>
+            <li class="">
+               <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="{{ request.user.dados_adicionais.foto_perfil.url }}" alt="">
+                  <div class="user-profile-aux">
+                     {{ request.user.first_name }} {{ request.user.last_name }}<br/>
+                     <small class="pull-left">Gestor</small>
+                  </div>
+               </a>
+               <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  <li><a data-toggle="modal" data-target="#myModal">  Unidade: GERAL</a>
+                  <li><a href="{% url 'autenticacao:pagina_perfil' %}">  Meu Perfil</a>
+                  <li><a href="#">  Algum menu</a>
+                  <li><a href="{% url 'autenticacao:sair_do_sistema' %}" ><i class="fa fa-sign-out pull-right"></i> Sair</a>
+                  </li>
+               </ul>
+            </li>
+            <li role="presentation" class="dropdown">
+               <a href="javascript:;" class="dropdown-toggle info-number icon-noti" data-toggle="dropdown" aria-expanded="false">
+               <i class="fa fa-bell-o"></i>
+               <span class="badge bg-green">6</span>
+               </a>
+               <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                  <li>
+                     <a>
+                     <span class="message">
+                     Film festivals used to be do-or-die moments for movie makers. They were where...
+                     </span>
+                     </a>
+                  </li>
+                  <li>
+                     <a>
+                     <span class="message">
+                     Film festivals used to be do-or-die moments for movie makers. They were where...
+                     </span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</header>
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+<div class="row">
+   <div class="col-md-12">
+      <ol class="breadcrumb">
+         <li><a href="#">Home</a></li>
+         <li><a href="#">Breadcrumb</a></li>
+         <li class="active">Meu Perfil</li>
+      </ol>
+      <h1>
+         Meu Perfil
+      </h1>
+      <p class="sub-text-content">
+         Nulla feugiat vel purus placerat convallis. Nam cursus lectus quam, vel ultrices justo cursus ut. Cras tincidunt ipsum non lacus laoreet mollis eget eu nibh. In tempus venenatis eleifend. Etiam id consequat orci, at lacinia quam. Nullam nec ultricies justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+         Nam at nisi sed sapien ultricies auctor. In porta, metus vitae finibus porta, elit nunc tristique justo, eu commodo enim turpis at nibh. Vivamus mattis mauris vel nunc finibus, vitae euismod mi mattis. Ut vitae ultricies sapien, eu efficitur eros. Proin neque nulla, maximus eget sagittis nec, laoreet vehicula lorem. Fusce at consectetur neque.
+      </p>
+   </div>
+</div>
+{#                <img  style="float: left;" class="imagem_perfil" src="{{ request.user.dados_adicionais.foto_perfil.url }}" alt="">#}
+<img  style="float: left;" class="imagem_perfil" src="/media/avatar/avatar.jpg" alt="">
+<h2 class="h2" style="padding-left: 200px;">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+
+<hr>
+<div class="col-md-8">
+    <div class="col-md-12">
+   <p class="h4 text-muted"> Nome Completo: </p>
+   <p class="h3" style="position: relative; top: -10px;"> {{ request.user.dados_adicionais.nome_completo }}</p>
+    </div>
+
+    <div class="col-md-4">
+   <p class="h4 text-muted"> CPF: </p>
+   <p class="h3" style="position: relative; top: -10px;"> {{ request.user.dados_adicionais.cpf }}</p>
+    </div>
+
+    <div class="col-md-4">
+   <p class="h4 text-muted"> RG: </p>
+   <p class="h3" style="position: relative; top: -10px;"> {{ request.user.dados_adicionais.rg }}</p>
+    </div>
+
+    <div class="col-md-4">
+   <p class="h4 text-muted"> Telefone: </p>
+   <p class="h3" style="position: relative; top: -10px;"> {{ request.user.dados_adicionais.telefone }}</p>
+    </div>
+
+    <div class="col-md-12">
+   <p class="h4 text-muted"> Email: </p>
+   <p class="h3" style="position: relative; top: -10px;"> {{ request.user.email }}</p>
+    </div>
+</div>
+
+<div class="col-md-12">
+   <p class="h4 text-muted"> Alterar Email</p>
+   <hr>
+   <form id="alterar_email" action="{% url 'autenticacao:alterar_email' %}" method="POST" class="col-md-12">
+      {% csrf_token %}
+       {#{{ form }}#}
+      <Label class="h4" for="email" >Email:</Label>
+       <input name="email_antigo" style="width: 35%;" value="{{ request.user.email }}" for="email" type="email">
+       <Label class="h4" for="email_novo">Novo Email:</Label>
+       <input name="email_novo" style="width: 35%;" for="email_novo" type="email">
+
+      <input type="submit" class="btn btn-primary" value="Alterar Email"/>
+   </form>
+</div>
+
+
+<div class="col-md-12" style="padding-top: 30px;">
+   <p class="h4 text-muted"> Alterar Senha</p>
+   <hr>
+   <form id="alterar_senha" action="{% url 'autenticacao:alterar_senha' %}" method="POST">
+
+       {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                <div class="alert alert-danger">
+                  <strong>*</strong> {{ message }}
+                </div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-warning">
+                  <strong>*</strong> {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+      {% csrf_token %}
+      <Label class="h4" for="senha_antiga">Senha Antiga:</Label>
+       <input name="senha_antiga" for="senha_antiga" type="password">
+       <Label class="h4" for="senha_nova">Nova Senha:</Label>
+       <input name="senha_nova" for="senha_nova" type="password">
+       <Label class="h4" for="confirmar_nova">Confirmar Senha:</Label>
+       <input name="confirmar_senha_nova" for="confirmar_nova" type="password">
+      <input type="submit" class="btn btn-primary" value="Alterar Senha"/>
+   </form>
+</div>
+
+
+
+{% endblock %}
+{% block scripts %}
+<script src="{% static "assets/js/vendor/jquery.min.js" %}"></script>
+<script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+<script src="{% static "assets/js/typeahead.min.js" %}"></script>
+<script src="{% static "assets/js/scripts.min.js" %}"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+       $('input.typeahead').typeahead({
+           name: 'accounts',
+           local: ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen']
+       });
+   });
+</script>
+<script src="{% static "assets/js/Chart.min.js" %}"></script>
+<!-- Chart.js -->
+<script>
+   Chart.defaults.global.legend = {
+       enabled: false
+   };
+   
+   // Line chart
+   var ctx = document.getElementById("lineChart");
+   var lineChart = new Chart(ctx, {
+       type: 'line',
+       data: {
+           labels: ["January", "February", "March", "April", "May", "June", "July"],
+           datasets: [{
+               label: "My First dataset",
+               backgroundColor: "rgba(38, 185, 154, 0.31)",
+               borderColor: "rgba(38, 185, 154, 0.7)",
+               pointBorderColor: "rgba(38, 185, 154, 0.7)",
+               pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+               pointHoverBackgroundColor: "#fff",
+               pointHoverBorderColor: "rgba(220,220,220,1)",
+               pointBorderWidth: 1,
+               data: [31, 74, 6, 39, 20, 85, 7]
+           }, {
+               label: "My Second dataset",
+               backgroundColor: "rgba(3, 88, 106, 0.3)",
+               borderColor: "rgba(3, 88, 106, 0.70)",
+               pointBorderColor: "rgba(3, 88, 106, 0.70)",
+               pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+               pointHoverBackgroundColor: "#fff",
+               pointHoverBorderColor: "rgba(151,187,205,1)",
+               pointBorderWidth: 1,
+               data: [82, 23, 66, 9, 99, 4, 2]
+           }]
+       },
+   });
+   
+   // Bar chart
+   var ctx = document.getElementById("mybarChart");
+   var mybarChart = new Chart(ctx, {
+       type: 'bar',
+       data: {
+           labels: ["January", "February", "March", "April", "May", "June", "July"],
+           datasets: [{
+               label: '# of Votes',
+               backgroundColor: "#26B99A",
+               data: [51, 30, 40, 28, 92, 50, 45]
+           }, {
+               label: '# of Votes',
+               backgroundColor: "#03586A",
+               data: [41, 56, 25, 48, 72, 34, 12]
+           }]
+       },
+   
+       options: {
+           scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero: true
+                   }
+               }]
+           }
+       }
+   });
+   
+   // Doughnut chart
+   var ctx = document.getElementById("canvasDoughnut");
+   var data = {
+       labels: [
+           "Dark Grey",
+           "Purple Color",
+           "Gray Color",
+           "Green Color",
+           "Blue Color"
+       ],
+       datasets: [{
+           data: [120, 50, 140, 180, 100],
+           backgroundColor: [
+               "#455C73",
+               "#9B59B6",
+               "#BDC3C7",
+               "#26B99A",
+               "#3498DB"
+           ],
+           hoverBackgroundColor: [
+               "#34495E",
+               "#B370CF",
+               "#CFD4D8",
+               "#36CAAB",
+               "#49A9EA"
+           ]
+   
+       }]
+   };
+   
+   var canvasDoughnut = new Chart(ctx, {
+       type: 'doughnut',
+       tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+       data: data
+   });
+   
+   // Radar chart
+   var ctx = document.getElementById("canvasRadar");
+   var data = {
+       labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+       datasets: [{
+           label: "My First dataset",
+           backgroundColor: "rgba(3, 88, 106, 0.2)",
+           borderColor: "rgba(3, 88, 106, 0.80)",
+           pointBorderColor: "rgba(3, 88, 106, 0.80)",
+           pointBackgroundColor: "rgba(3, 88, 106, 0.80)",
+           pointHoverBackgroundColor: "#fff",
+           pointHoverBorderColor: "rgba(220,220,220,1)",
+           data: [65, 59, 90, 81, 56, 55, 40]
+       }, {
+           label: "My Second dataset",
+           backgroundColor: "rgba(38, 185, 154, 0.2)",
+           borderColor: "rgba(38, 185, 154, 0.85)",
+           pointColor: "rgba(38, 185, 154, 0.85)",
+           pointStrokeColor: "#fff",
+           pointHighlightFill: "#fff",
+           pointHighlightStroke: "rgba(151,187,205,1)",
+           data: [28, 48, 40, 19, 96, 27, 100]
+       }]
+   };
+   
+   var canvasRadar = new Chart(ctx, {
+       type: 'radar',
+       data: data,
+   });
+   
+   // Pie chart
+   var ctx = document.getElementById("pieChart");
+   var data = {
+       datasets: [{
+           data: [120, 50, 140, 180, 100],
+           backgroundColor: [
+               "#455C73",
+               "#9B59B6",
+               "#BDC3C7",
+               "#26B99A",
+               "#3498DB"
+           ],
+           label: 'My dataset' // for legend
+       }],
+       labels: [
+           "Dark Gray",
+           "Purple",
+           "Gray",
+           "Green",
+           "Blue"
+       ]
+   };
+   
+   var pieChart = new Chart(ctx, {
+       data: data,
+       type: 'pie',
+       otpions: {
+           legend: false
+       }
+   });
+   
+   // PolarArea chart
+   var ctx = document.getElementById("polarArea");
+   var data = {
+       datasets: [{
+           data: [120, 50, 140, 180, 100],
+           backgroundColor: [
+               "#455C73",
+               "#9B59B6",
+               "#BDC3C7",
+               "#26B99A",
+               "#3498DB"
+           ],
+           label: 'My dataset'
+       }],
+       labels: [
+           "Dark Gray",
+           "Purple",
+           "Gray",
+           "Green",
+           "Blue"
+       ]
+   };
+   
+   var polarArea = new Chart(ctx, {
+       data: data,
+       type: 'polarArea',
+       options: {
+           scale: {
+               ticks: {
+                   beginAtZero: true
+               }
+           }
+       }
+   });
+</script>
+{% endblock %}
+
